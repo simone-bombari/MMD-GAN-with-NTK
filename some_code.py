@@ -133,6 +133,8 @@ def compute_loss_accuracy(data_loader, loss_function):
     return loss, accuracy
 
 
+use_cuda = True
+device = 'cuda' if use_cuda else 'cpu'
 lr = 0.1
 loss_function = 'CEL'
 dataset = 'MNIST'
