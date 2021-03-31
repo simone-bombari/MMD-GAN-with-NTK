@@ -39,7 +39,7 @@ for epoch in range(epochs):
     # print(total_labels)
 
 
-torch.save(net.state_dict(), save_path)
+# torch.save(net.state_dict(), save_path)
 
 with torch.no_grad():
     noise_to_print = torch.randn((1, latent_size))
