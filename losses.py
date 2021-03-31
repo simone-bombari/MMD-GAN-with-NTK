@@ -4,18 +4,15 @@ from torch import nn
 
 def gaussian_kernel(batch_images_1, batch_images_2, sigma, equal_batches=False):
     n_images_1, n_images_2 = batch_images_1.shape[0], batch_images_2.shape[0]
-    # batch_images_1 = torch.view(n_images_1, -1)
-    # batch_images_2 = torch.view(n_images_2, -1)  # to make the images flat
-    dimension_images = batch_images_1.shape[1]  # for MNIST is 28 * 28
     term_for_mmd = 0
     for i in range(n_images_1):
         for j in range(n_images_2):
             if equal_batches:
                 if i != j:
-                    kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_1[j]).pow(2).sum() / (2 * sigma ** 2))
+                    kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_2[j]).pow(2).sum() / (2 * sigma ** 2))
                     term_for_mmd += kernel_i_j
             else:
-                kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_1[j]).pow(2).sum())
+                kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_2[j]).pow(2).sum() / (2 * sigma ** 2))
                 term_for_mmd += kernel_i_j
     if equal_batches:
         term_for_mmd /= n_images_1 * (n_images_1 - 1)

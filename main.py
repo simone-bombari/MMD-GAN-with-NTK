@@ -7,7 +7,7 @@ from models import mmd_generator
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-lr = 0.05
+lr = 0.01
 weight_decay = 10 ** (-4)
 dataset = 'MNIST'
 batch_size = 512
