@@ -1,14 +1,8 @@
 import torch
-from torch import nn, optim
-from torch.utils.data import DataLoader
-from torch.nn import functional as F
-from torchvision import datasets, transforms
-from torchvision.utils import save_image
-
-import numpy as np
+from torch import nn
 
 
-def gaussian_kernel(batch_images_1, batch_images_2, equal_batches=False):
+def gaussian_kernel(batch_images_1, batch_images_2, sigma, equal_batches=False):
     n_images_1, n_images_2 = batch_images_1.shape[0], batch_images_2.shape[0]
     # batch_images_1 = torch.view(n_images_1, -1)
     # batch_images_2 = torch.view(n_images_2, -1)  # to make the images flat
@@ -18,7 +12,7 @@ def gaussian_kernel(batch_images_1, batch_images_2, equal_batches=False):
         for j in range(n_images_2):
             if equal_batches:
                 if i != j:
-                    kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_1[j]).pow(2).sum())
+                    kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_1[j]).pow(2).sum() / (2 * sigma ** 2))
                     term_for_mmd += kernel_i_j
             else:
                 kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_1[j]).pow(2).sum())
@@ -30,10 +24,10 @@ def gaussian_kernel(batch_images_1, batch_images_2, equal_batches=False):
     return term_for_mmd
 
 
-def mmd(batch_images, batch_generated_images):
-    return gaussian_kernel(batch_images, batch_images, equal_batches=True) +\
-           gaussian_kernel(batch_generated_images, batch_generated_images, equal_batches=True) -\
-           gaussian_kernel(batch_images, batch_generated_images)  # There is definitely a smarter way to do this...
+def mmd(batch_images, batch_generated_images, sigma):
+    return gaussian_kernel(batch_images, batch_images, sigma, equal_batches=True) +\
+           gaussian_kernel(batch_generated_images, batch_generated_images, sigma, equal_batches=True) -\
+           gaussian_kernel(batch_images, batch_generated_images, sigma)  # There is definitely a smarter way to do this...
 
 
 def loss_calculator(outputs, labels, loss_function, num_classes):
