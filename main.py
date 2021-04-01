@@ -25,9 +25,10 @@ save_path = './prova_net.pth'
 
 for epoch in range(epochs):
     print('epoch', epoch, flush=True)
-    noise = torch.randn((noise_batch_size, latent_size))
-    noise.to(device)
+    noise = torch.randn((noise_batch_size, latent_size)).to(device)
     print(device, flush=True)
+    print(next(net.parameters()).device, flush=True)
+    print(noise.device, '\n', flush=True)
     c = 0
     # Train!
     for input_images, _ in iter(train_loader):

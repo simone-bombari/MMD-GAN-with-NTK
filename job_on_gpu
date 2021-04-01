@@ -54,7 +54,4 @@ module load torch/devel
 srun /usr/bin/nvidia-smi
 #
 #run your CUDA binary through SLURM's srun
-srun python3 
-main.py
-
-
+srun python3 main.py
