@@ -4,6 +4,7 @@ import torch.optim as optim
 from dataloader import load_data
 from losses import mmd
 from models import mmd_generator
+from torch import nn
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -23,16 +24,17 @@ save_path = './prova_net.pth'
 
 
 for epoch in range(epochs):
-    print('epoch', epoch)
+    print('epoch', epoch, flush=True)
     noise = torch.randn((noise_batch_size, latent_size))
+    noise.to(device)
+    print(device, flush=True)
     c = 0
     # Train!
     for input_images, _ in iter(train_loader):
-        print('minibatch', c)  # MNIST has 60000 images
+        print('minibatch', c, flush=True)  # MNIST has 60000 images
         generated_images = net(noise)
         input_images = input_images.to(device)
-        generated_images.to(device)
-        # labels = labels.to(device)
+        # generated_images.to(device)
         optimizer.zero_grad()   # zero the gradient buffers
         loss = mmd(input_images.squeeze(), generated_images.squeeze(), sigma)
         print('loss = ', loss)
@@ -42,8 +44,9 @@ for epoch in range(epochs):
     # print(total_labels)
 
 
-# torch.save(net.state_dict(), save_path)
-
+torch.save(net.state_dict(), save_path)
+ 
+'''
 with torch.no_grad():
     noise_to_print = torch.randn((1, latent_size))
     sample_image = net(noise_to_print)
@@ -52,3 +55,4 @@ with torch.no_grad():
     sample_image = sample_image.squeeze()
     ax.imshow(sample_image)
     plt.show()
+'''
