@@ -5,7 +5,7 @@ ucx/1.7.0 on Debian 10(buster) does not support Cuda, yet
 The following have been reloaded with a version change:
   1) python/3.7.6 => python/3.8.5
 
-Fri Apr  2 19:35:13 2021       
+Fri Apr  2 19:26:09 2021       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 460.39       Driver Version: 460.39       CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
@@ -13,36 +13,44 @@ Fri Apr  2 19:35:13 2021
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  GeForce RTX 3090    On   | 00000000:01:00.0 Off |                  N/A |
-| 53%   58C    P2   318W / 350W |  22630MiB / 24268MiB |     99%   E. Process |
+|   0  GeForce GTX 108...  Off  | 00000000:04:00.0 Off |                  N/A |
+| 30%   53C    P2   147W / 250W |  10451MiB / 11178MiB |     57%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   1  GeForce RTX 3090    On   | 00000000:25:00.0 Off |                  N/A |
-| 56%   59C    P2   318W / 350W |  22508MiB / 24268MiB |    100%   E. Process |
+|   1  GeForce GTX 108...  Off  | 00000000:05:00.0 Off |                  N/A |
+| 31%   55C    P2   148W / 250W |  10451MiB / 11178MiB |     72%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   2  GeForce RTX 3090    On   | 00000000:41:00.0 Off |                  N/A |
-| 30%   24C    P8    23W / 350W |      1MiB / 24268MiB |      0%   E. Process |
+|   2  GeForce GTX 108...  Off  | 00000000:06:00.0 Off |                  N/A |
+| 33%   58C    P2   211W / 250W |  10451MiB / 11178MiB |     82%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   3  GeForce RTX 3090    On   | 00000000:61:00.0 Off |                  N/A |
-| 30%   22C    P8    21W / 350W |      1MiB / 24268MiB |      0%   E. Process |
+|   3  GeForce GTX 108...  Off  | 00000000:07:00.0 Off |                  N/A |
+| 31%   56C    P2   163W / 250W |  10451MiB / 11178MiB |     82%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   4  GeForce RTX 3090    On   | 00000000:81:00.0 Off |                  N/A |
-| 48%   50C    P2   121W / 350W |  22664MiB / 24268MiB |      0%   E. Process |
+|   4  GeForce GTX 108...  Off  | 00000000:08:00.0 Off |                  N/A |
+| 23%   26C    P8     8W / 250W |      0MiB / 11178MiB |      0%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   5  GeForce RTX 3090    On   | 00000000:A1:00.0 Off |                  N/A |
-| 46%   48C    P2   109W / 350W |  22546MiB / 24268MiB |      0%   E. Process |
+|   5  GeForce GTX 108...  Off  | 00000000:0B:00.0 Off |                  N/A |
+| 23%   24C    P8     7W / 250W |      0MiB / 11178MiB |      0%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   6  GeForce RTX 3090    On   | 00000000:C1:00.0 Off |                  N/A |
-| 61%   62C    P2   338W / 350W |  23648MiB / 24268MiB |     96%   E. Process |
+|   6  GeForce GTX 108...  Off  | 00000000:0C:00.0 Off |                  N/A |
+| 23%   27C    P8     8W / 250W |      0MiB / 11178MiB |      0%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   7  GeForce RTX 3090    On   | 00000000:E1:00.0 Off |                  N/A |
-| 30%   22C    P8    16W / 350W |      1MiB / 24268MiB |      0%   E. Process |
+|   7  GeForce GTX 108...  Off  | 00000000:0D:00.0 Off |                  N/A |
+| 23%   26C    P8     9W / 250W |      0MiB / 11178MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   8  GeForce GTX 108...  Off  | 00000000:0E:00.0 Off |                  N/A |
+| 23%   28C    P8     7W / 250W |      0MiB / 11178MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   9  GeForce GTX 108...  Off  | 00000000:0F:00.0 Off |                  N/A |
+| 23%   26C    P8     8W / 250W |      0MiB / 11178MiB |      0%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -51,9 +59,20 @@ Fri Apr  2 19:35:13 2021
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
 |        ID   ID                                                   Usage      |
 |=============================================================================|
-|    0   N/A  N/A     26718      C   ...envs/py3_torch/bin/python    22627MiB |
-|    1   N/A  N/A     26718      C   ...envs/py3_torch/bin/python    22505MiB |
-|    4   N/A  N/A     82511      C   ...envs/py3_torch/bin/python    22661MiB |
-|    5   N/A  N/A     82511      C   ...envs/py3_torch/bin/python    22543MiB |
-|    6   N/A  N/A     41696      C   python3                         23645MiB |
+|    0   N/A  N/A     29851      C   ...0-g/bin/relion_refine_mpi    10449MiB |
+|    1   N/A  N/A     29852      C   ...0-g/bin/relion_refine_mpi    10449MiB |
+|    2   N/A  N/A     29857      C   ...0-g/bin/relion_refine_mpi    10449MiB |
+|    3   N/A  N/A     29861      C   ...0-g/bin/relion_refine_mpi    10449MiB |
 +-----------------------------------------------------------------------------+
+epoch 0
+cuda:0
+cuda:0
+cuda:0 
+
+minibatch 0
+loss =  0.038915038108825684
+two parameters  0.22146573662757874 -0.009085796773433685
+minibatch 1
+loss =  0.010071516036987305
+two parameters  -0.2783069908618927 -0.5048942565917969
+minibatch 2

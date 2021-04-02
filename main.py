@@ -25,7 +25,7 @@ save_path = './training2.pth'
 
 for epoch in range(epochs):
     print('epoch', epoch, flush=True)
-    noise = torch.randn((noise_batch_size, latent_size)).to(device)
+    noise = torch.randn((noise_batch_size, latent_size)).float().to(device)
     print(device, flush=True)
     print(next(net.parameters()).device, flush=True)
     print(noise.device, '\n', flush=True)
@@ -36,7 +36,7 @@ for epoch in range(epochs):
             break
         print('minibatch', c, flush=True)  # MNIST has 60000 images
         generated_images = net(noise)
-        input_images = input_images.to(device)
+        input_images = input_images.float().to(device)
         # generated_images.to(device)
         optimizer.zero_grad()   # zero the gradient buffers
         loss = mmd(input_images.squeeze(), generated_images.squeeze(), sigma)
