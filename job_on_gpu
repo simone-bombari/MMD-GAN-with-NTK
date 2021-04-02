@@ -4,8 +4,8 @@
 # single GPU + single CPU example
 #----------------------------------
 #
-#SBATCH --job-name=crying
-#SBATCH --output=gputrying
+#SBATCH --job-name=training2
+#SBATCH --output=training2
 #
 #number of CPUs to be used
 #SBATCH --ntasks=1
@@ -34,7 +34,7 @@
 
 #
 #Define the number of GPUs used by your job
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:2
 #
 
 #

@@ -8,19 +8,19 @@ from torch import nn
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-lr = 0.01
+lr = 0.5
 weight_decay = 10 ** (-4)
 dataset = 'MNIST'
 batch_size = 512
-noise_batch_size = 256
-sigma = 14
-latent_size = 10
+noise_batch_size = 512
+sigma = 50
+latent_size = 50
 train_loader, train_loader_with_replacement, test_loader, labels, num_classes = load_data(dataset, batch_size, download=False)
-epochs = 1
+epochs = 5
 net = mmd_generator(latent_size=latent_size)
 net.to(device)
-optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=weight_decay)
-save_path = './prova_net.pth'
+optimizer = optim.SGD(net.parameters(), lr=lr, weight_decay=weight_decay)
+save_path = './training2.pth'
 
 
 for epoch in range(epochs):
@@ -32,13 +32,16 @@ for epoch in range(epochs):
     c = 0
     # Train!
     for input_images, _ in iter(train_loader):
+        if c == 110:
+            break
         print('minibatch', c, flush=True)  # MNIST has 60000 images
         generated_images = net(noise)
         input_images = input_images.to(device)
         # generated_images.to(device)
         optimizer.zero_grad()   # zero the gradient buffers
         loss = mmd(input_images.squeeze(), generated_images.squeeze(), sigma)
-        print('loss = ', loss)
+        print('loss = ', loss.item(), flush=True)
+        print('two parameters ', net.decoder[0].weight[0][0].item(), net.decoder[9].weight[0][0][0][0].item(), flush=True)
         loss.backward()
         optimizer.step()
         c += 1

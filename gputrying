@@ -5,7 +5,7 @@ ucx/1.7.0 on Debian 10(buster) does not support Cuda, yet
 The following have been reloaded with a version change:
   1) python/3.7.6 => python/3.8.5
 
-Thu Apr  1 10:55:46 2021       
+Fri Apr  2 10:31:15 2021       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 460.39       Driver Version: 460.39       CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
@@ -14,19 +14,19 @@ Thu Apr  1 10:55:46 2021
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
 |   0  GeForce GTX 980     Off  | 00000000:02:00.0 Off |                  N/A |
-| 34%   28C    P8    11W / 180W |     14MiB /  4043MiB |      0%      Default |
+| 30%   31C    P5    14W / 180W |     14MiB /  4043MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   1  GeForce GTX 980     Off  | 00000000:03:00.0 Off |                  N/A |
-| 35%   27C    P8    11W / 180W |      2MiB /  4043MiB |      0%      Default |
+| 34%   23C    P8    11W / 180W |      2MiB /  4043MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   2  GeForce GTX 980     Off  | 00000000:82:00.0 Off |                  N/A |
-| 26%   26C    P8    12W / 180W |      2MiB /  4043MiB |      0%      Default |
+| 27%   22C    P8    12W / 180W |      2MiB /  4043MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
 |   3  GeForce GTX 980     Off  | 00000000:83:00.0 Off |                  N/A |
-| 26%   26C    P8    13W / 180W |      2MiB /  4043MiB |      0%      Default |
+| 26%   21C    P8    13W / 180W |      2MiB /  4043MiB |      0%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -43,238 +43,402 @@ cuda:0
 cuda:0 
 
 minibatch 0
-loss =  tensor(1.1359, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0120, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2241, -0.1476,  0.0480, -0.1830,  0.0457,  0.1064,  0.2464,  0.0809,
+        -0.2522,  0.0742], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0464, -0.0665,  0.0386],
+        [ 0.0301,  0.0081, -0.0013],
+        [ 0.0991,  0.1014, -0.0946]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 1
-loss =  tensor(1.1292, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0105, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2240, -0.1476,  0.0480, -0.1830,  0.0457,  0.1064,  0.2463,  0.0809,
+        -0.2522,  0.0742], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0451, -0.0678,  0.0373],
+        [ 0.0288,  0.0068, -0.0026],
+        [ 0.0978,  0.1001, -0.0959]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 2
-loss =  tensor(1.1066, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0101, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2240, -0.1476,  0.0480, -0.1830,  0.0457,  0.1064,  0.2463,  0.0809,
+        -0.2522,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0440, -0.0689,  0.0361],
+        [ 0.0277,  0.0056, -0.0038],
+        [ 0.0967,  0.0989, -0.0971]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 3
-loss =  tensor(1.0803, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0090, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2240, -0.1476,  0.0480, -0.1830,  0.0457,  0.1064,  0.2463,  0.0809,
+        -0.2521,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0430, -0.0699,  0.0351],
+        [ 0.0267,  0.0046, -0.0049],
+        [ 0.0956,  0.0978, -0.0981]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 4
-loss =  tensor(1.0430, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0087, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2240, -0.1476,  0.0480, -0.1830,  0.0457,  0.1064,  0.2463,  0.0808,
+        -0.2521,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0421, -0.0708,  0.0342],
+        [ 0.0258,  0.0037, -0.0057],
+        [ 0.0948,  0.0969, -0.0990]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 5
-loss =  tensor(0.9963, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0089, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2240, -0.1476,  0.0480, -0.1829,  0.0457,  0.1064,  0.2462,  0.0808,
+        -0.2521,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0414, -0.0716,  0.0334],
+        [ 0.0251,  0.0029, -0.0065],
+        [ 0.0940,  0.0962, -0.0998]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 6
-loss =  tensor(0.9582, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0086, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2239, -0.1475,  0.0480, -0.1829,  0.0457,  0.1063,  0.2462,  0.0808,
+        -0.2521,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0408, -0.0722,  0.0327],
+        [ 0.0245,  0.0023, -0.0072],
+        [ 0.0934,  0.0955, -0.1004]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 7
-loss =  tensor(0.9469, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0080, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2239, -0.1475,  0.0479, -0.1829,  0.0457,  0.1063,  0.2462,  0.0808,
+        -0.2520,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0402, -0.0728,  0.0322],
+        [ 0.0239,  0.0017, -0.0078],
+        [ 0.0928,  0.0949, -0.1010]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 8
-loss =  tensor(0.9465, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0072, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2239, -0.1475,  0.0479, -0.1829,  0.0457,  0.1063,  0.2462,  0.0808,
+        -0.2520,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0398, -0.0732,  0.0317],
+        [ 0.0234,  0.0012, -0.0083],
+        [ 0.0923,  0.0944, -0.1015]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 9
-loss =  tensor(0.9495, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0072, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2239, -0.1475,  0.0479, -0.1829,  0.0457,  0.1063,  0.2461,  0.0808,
+        -0.2520,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0394, -0.0737,  0.0313],
+        [ 0.0230,  0.0008, -0.0087],
+        [ 0.0919,  0.0939, -0.1019]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 10
-loss =  tensor(0.9535, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0064, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2238, -0.1475,  0.0479, -0.1829,  0.0457,  0.1063,  0.2461,  0.0808,
+        -0.2520,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0390, -0.0740,  0.0309],
+        [ 0.0227,  0.0004, -0.0091],
+        [ 0.0916,  0.0935, -0.1023]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 11
-loss =  tensor(0.9545, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0046, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2238, -0.1475,  0.0479, -0.1828,  0.0457,  0.1063,  0.2461,  0.0808,
+        -0.2519,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 3.8754e-02, -7.4307e-02,  3.0581e-02],
+        [ 2.2405e-02,  8.3738e-05, -9.4014e-03],
+        [ 9.1274e-02,  9.3215e-02, -1.0261e-01]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 12
-loss =  tensor(0.9572, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0034, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2238, -0.1474,  0.0479, -0.1828,  0.0457,  0.1063,  0.2461,  0.0808,
+        -0.2519,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0385, -0.0746,  0.0303],
+        [ 0.0222, -0.0002, -0.0097],
+        [ 0.0910,  0.0929, -0.1029]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 13
-loss =  tensor(0.9577, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0029, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2238, -0.1474,  0.0479, -0.1828,  0.0457,  0.1063,  0.2460,  0.0808,
+        -0.2519,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0383, -0.0748,  0.0301],
+        [ 0.0219, -0.0004, -0.0099],
+        [ 0.0908,  0.0927, -0.1031]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 14
-loss =  tensor(0.9557, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0022, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2238, -0.1474,  0.0479, -0.1828,  0.0457,  0.1063,  0.2460,  0.0808,
+        -0.2519,  0.0741], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0381, -0.0750,  0.0299],
+        [ 0.0218, -0.0006, -0.0101],
+        [ 0.0906,  0.0925, -0.1033]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 15
-loss =  tensor(0.9571, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0020, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2237, -0.1474,  0.0479, -0.1828,  0.0457,  0.1062,  0.2460,  0.0808,
+        -0.2518,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0380, -0.0751,  0.0297],
+        [ 0.0216, -0.0008, -0.0103],
+        [ 0.0904,  0.0923, -0.1035]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 16
-loss =  tensor(0.9564, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0015, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2237, -0.1474,  0.0479, -0.1827,  0.0457,  0.1062,  0.2460,  0.0807,
+        -0.2518,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0378, -0.0753,  0.0295],
+        [ 0.0214, -0.0010, -0.0105],
+        [ 0.0903,  0.0921, -0.1036]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 17
-loss =  tensor(0.9577, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0014, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2237, -0.1474,  0.0479, -0.1827,  0.0457,  0.1062,  0.2459,  0.0807,
+        -0.2518,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0377, -0.0754,  0.0294],
+        [ 0.0213, -0.0011, -0.0106],
+        [ 0.0901,  0.0920, -0.1038]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 18
-loss =  tensor(0.9535, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0009, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2237, -0.1474,  0.0479, -0.1827,  0.0457,  0.1062,  0.2459,  0.0807,
+        -0.2518,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0376, -0.0755,  0.0293],
+        [ 0.0212, -0.0012, -0.0107],
+        [ 0.0900,  0.0918, -0.1039]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 19
-loss =  tensor(0.9540, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0011, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2236, -0.1473,  0.0479, -0.1827,  0.0457,  0.1062,  0.2459,  0.0807,
+        -0.2517,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0375, -0.0756,  0.0292],
+        [ 0.0211, -0.0014, -0.0108],
+        [ 0.0899,  0.0917, -0.1040]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 20
-loss =  tensor(0.9500, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0007, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2236, -0.1473,  0.0479, -0.1827,  0.0456,  0.1062,  0.2459,  0.0807,
+        -0.2517,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0374, -0.0757,  0.0291],
+        [ 0.0210, -0.0015, -0.0110],
+        [ 0.0898,  0.0916, -0.1041]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 21
-loss =  tensor(0.9477, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0008, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2236, -0.1473,  0.0479, -0.1827,  0.0456,  0.1062,  0.2458,  0.0807,
+        -0.2517,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0373, -0.0758,  0.0290],
+        [ 0.0209, -0.0016, -0.0111],
+        [ 0.0897,  0.0915, -0.1042]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 22
-loss =  tensor(0.9396, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(1.0000, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2236, -0.1473,  0.0479, -0.1826,  0.0456,  0.1062,  0.2458,  0.0807,
+        -0.2517,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0372, -0.0759,  0.0289],
+        [ 0.0208, -0.0017, -0.0111],
+        [ 0.0896,  0.0914, -0.1043]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 23
-loss =  tensor(0.9304, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9996, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2235, -0.1473,  0.0479, -0.1826,  0.0456,  0.1062,  0.2458,  0.0807,
+        -0.2516,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0372, -0.0760,  0.0288],
+        [ 0.0208, -0.0017, -0.0112],
+        [ 0.0896,  0.0913, -0.1043]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 24
-loss =  tensor(0.9165, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9984, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2235, -0.1473,  0.0479, -0.1826,  0.0456,  0.1062,  0.2458,  0.0807,
+        -0.2516,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0371, -0.0760,  0.0287],
+        [ 0.0207, -0.0018, -0.0113],
+        [ 0.0895,  0.0912, -0.1044]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 25
-loss =  tensor(0.9002, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9983, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2235, -0.1473,  0.0479, -0.1826,  0.0456,  0.1061,  0.2457,  0.0807,
+        -0.2516,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0370, -0.0761,  0.0286],
+        [ 0.0206, -0.0019, -0.0114],
+        [ 0.0894,  0.0911, -0.1045]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 26
-loss =  tensor(0.8979, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9981, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2235, -0.1472,  0.0479, -0.1826,  0.0456,  0.1061,  0.2457,  0.0807,
+        -0.2516,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0370, -0.0762,  0.0286],
+        [ 0.0206, -0.0020, -0.0114],
+        [ 0.0893,  0.0910, -0.1045]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 27
-loss =  tensor(0.9034, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9972, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2235, -0.1472,  0.0479, -0.1825,  0.0456,  0.1061,  0.2457,  0.0807,
+        -0.2515,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0369, -0.0762,  0.0285],
+        [ 0.0205, -0.0020, -0.0115],
+        [ 0.0893,  0.0910, -0.1046]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 28
-loss =  tensor(0.9014, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9967, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2234, -0.1472,  0.0478, -0.1825,  0.0456,  0.1061,  0.2457,  0.0807,
+        -0.2515,  0.0740], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0369, -0.0763,  0.0284],
+        [ 0.0205, -0.0021, -0.0116],
+        [ 0.0892,  0.0909, -0.1046]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 29
-loss =  tensor(0.8886, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9965, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2234, -0.1472,  0.0478, -0.1825,  0.0456,  0.1061,  0.2456,  0.0806,
+        -0.2515,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0368, -0.0763,  0.0284],
+        [ 0.0204, -0.0021, -0.0116],
+        [ 0.0892,  0.0908, -0.1047]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 30
-loss =  tensor(0.8840, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9960, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2234, -0.1472,  0.0478, -0.1825,  0.0456,  0.1061,  0.2456,  0.0806,
+        -0.2514,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0368, -0.0764,  0.0283],
+        [ 0.0204, -0.0022, -0.0117],
+        [ 0.0891,  0.0908, -0.1047]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 31
-loss =  tensor(0.8794, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9961, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2234, -0.1472,  0.0478, -0.1825,  0.0456,  0.1061,  0.2456,  0.0806,
+        -0.2514,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0367, -0.0764,  0.0283],
+        [ 0.0203, -0.0022, -0.0117],
+        [ 0.0891,  0.0907, -0.1047]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 32
-loss =  tensor(0.8738, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9957, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2233, -0.1472,  0.0478, -0.1824,  0.0456,  0.1061,  0.2456,  0.0806,
+        -0.2514,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0367, -0.0764,  0.0282],
+        [ 0.0203, -0.0023, -0.0118],
+        [ 0.0890,  0.0907, -0.1048]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 33
-loss =  tensor(0.8690, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9954, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2233, -0.1471,  0.0478, -0.1824,  0.0456,  0.1061,  0.2455,  0.0806,
+        -0.2514,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0367, -0.0765,  0.0282],
+        [ 0.0203, -0.0023, -0.0118],
+        [ 0.0890,  0.0906, -0.1048]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 34
-loss =  tensor(0.8617, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9949, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2233, -0.1471,  0.0478, -0.1824,  0.0456,  0.1060,  0.2455,  0.0806,
+        -0.2513,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0366, -0.0765,  0.0281],
+        [ 0.0202, -0.0024, -0.0118],
+        [ 0.0889,  0.0905, -0.1048]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 35
-loss =  tensor(0.8511, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9952, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2233, -0.1471,  0.0478, -0.1824,  0.0456,  0.1060,  0.2455,  0.0806,
+        -0.2513,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0366, -0.0765,  0.0281],
+        [ 0.0202, -0.0024, -0.0119],
+        [ 0.0889,  0.0905, -0.1049]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 36
-loss =  tensor(0.8418, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9948, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2233, -0.1471,  0.0478, -0.1824,  0.0456,  0.1060,  0.2455,  0.0806,
+        -0.2513,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0366, -0.0766,  0.0281],
+        [ 0.0202, -0.0025, -0.0119],
+        [ 0.0889,  0.0904, -0.1049]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 37
-loss =  tensor(0.8405, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9943, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2232, -0.1471,  0.0478, -0.1824,  0.0456,  0.1060,  0.2454,  0.0806,
+        -0.2513,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0365, -0.0766,  0.0280],
+        [ 0.0201, -0.0025, -0.0119],
+        [ 0.0888,  0.0904, -0.1049]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 38
-loss =  tensor(0.8353, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9944, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2232, -0.1471,  0.0478, -0.1823,  0.0456,  0.1060,  0.2454,  0.0806,
+        -0.2512,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0365, -0.0766,  0.0280],
+        [ 0.0201, -0.0025, -0.0120],
+        [ 0.0888,  0.0904, -0.1049]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 39
-loss =  tensor(0.8280, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9941, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2232, -0.1470,  0.0478, -0.1823,  0.0456,  0.1060,  0.2454,  0.0806,
+        -0.2512,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0365, -0.0766,  0.0279],
+        [ 0.0201, -0.0026, -0.0120],
+        [ 0.0887,  0.0903, -0.1050]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 40
-loss =  tensor(0.8225, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9939, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2232, -0.1470,  0.0478, -0.1823,  0.0456,  0.1060,  0.2454,  0.0806,
+        -0.2512,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0364, -0.0767,  0.0279],
+        [ 0.0200, -0.0026, -0.0120],
+        [ 0.0887,  0.0903, -0.1050]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 41
-loss =  tensor(0.8174, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9937, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2231, -0.1470,  0.0478, -0.1823,  0.0455,  0.1060,  0.2453,  0.0805,
+        -0.2512,  0.0739], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0364, -0.0767,  0.0279],
+        [ 0.0200, -0.0026, -0.0121],
+        [ 0.0887,  0.0902, -0.1050]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 42
-loss =  tensor(0.8124, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9939, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2231, -0.1470,  0.0478, -0.1823,  0.0455,  0.1060,  0.2453,  0.0805,
+        -0.2511,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0364, -0.0767,  0.0278],
+        [ 0.0200, -0.0027, -0.0121],
+        [ 0.0886,  0.0902, -0.1050]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 43
-loss =  tensor(0.7986, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9935, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2231, -0.1470,  0.0478, -0.1822,  0.0455,  0.1059,  0.2453,  0.0805,
+        -0.2511,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0364, -0.0767,  0.0278],
+        [ 0.0200, -0.0027, -0.0121],
+        [ 0.0886,  0.0902, -0.1050]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 44
-loss =  tensor(0.7900, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9936, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2231, -0.1470,  0.0478, -0.1822,  0.0455,  0.1059,  0.2453,  0.0805,
+        -0.2511,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0363, -0.0768,  0.0278],
+        [ 0.0199, -0.0027, -0.0122],
+        [ 0.0886,  0.0901, -0.1051]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 45
-loss =  tensor(0.7809, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9933, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2230, -0.1470,  0.0478, -0.1822,  0.0455,  0.1059,  0.2452,  0.0805,
+        -0.2511,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0363, -0.0768,  0.0278],
+        [ 0.0199, -0.0027, -0.0122],
+        [ 0.0886,  0.0901, -0.1051]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 46
-loss =  tensor(0.7677, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9935, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2230, -0.1469,  0.0478, -0.1822,  0.0455,  0.1059,  0.2452,  0.0805,
+        -0.2510,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0363, -0.0768,  0.0277],
+        [ 0.0199, -0.0028, -0.0122],
+        [ 0.0885,  0.0901, -0.1051]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 47
-loss =  tensor(0.7609, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9932, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2230, -0.1469,  0.0478, -0.1822,  0.0455,  0.1059,  0.2452,  0.0805,
+        -0.2510,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0363, -0.0768,  0.0277],
+        [ 0.0199, -0.0028, -0.0122],
+        [ 0.0885,  0.0900, -0.1051]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 48
-loss =  tensor(0.7491, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9932, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2230, -0.1469,  0.0478, -0.1822,  0.0455,  0.1059,  0.2452,  0.0805,
+        -0.2510,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0362, -0.0768,  0.0277],
+        [ 0.0199, -0.0028, -0.0123],
+        [ 0.0885,  0.0900, -0.1051]], device='cuda:0',
+       grad_fn=<SelectBackward>)
 minibatch 49
-loss =  tensor(0.7422, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 50
-loss =  tensor(0.7352, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 51
-loss =  tensor(0.7299, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 52
-loss =  tensor(0.7270, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 53
-loss =  tensor(0.7213, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 54
-loss =  tensor(0.7182, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 55
-loss =  tensor(0.7163, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 56
-loss =  tensor(0.7146, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 57
-loss =  tensor(0.7130, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 58
-loss =  tensor(0.7097, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 59
-loss =  tensor(0.7118, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 60
-loss =  tensor(0.7090, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 61
-loss =  tensor(0.7079, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 62
-loss =  tensor(0.7047, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 63
-loss =  tensor(0.7019, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 64
-loss =  tensor(0.7031, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 65
-loss =  tensor(0.7009, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 66
-loss =  tensor(0.6989, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 67
-loss =  tensor(0.6957, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 68
-loss =  tensor(0.6941, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 69
-loss =  tensor(0.6917, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 70
-loss =  tensor(0.6942, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 71
-loss =  tensor(0.6833, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 72
-loss =  tensor(0.6882, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 73
-loss =  tensor(0.6898, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 74
-loss =  tensor(0.6875, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 75
-loss =  tensor(0.6857, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 76
-loss =  tensor(0.6833, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 77
-loss =  tensor(0.6800, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 78
-loss =  tensor(0.6782, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 79
-loss =  tensor(0.6782, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 80
-loss =  tensor(0.6777, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 81
-loss =  tensor(0.6815, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 82
-loss =  tensor(0.6757, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 83
-loss =  tensor(0.6770, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 84
-loss =  tensor(0.6764, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 85
-loss =  tensor(0.6751, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 86
-loss =  tensor(0.6748, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 87
-loss =  tensor(0.6699, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 88
-loss =  tensor(0.6732, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 89
-loss =  tensor(0.6740, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 90
-loss =  tensor(0.6751, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 91
-loss =  tensor(0.6710, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 92
-loss =  tensor(0.6720, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 93
-loss =  tensor(0.6707, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 94
-loss =  tensor(0.6706, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 95
-loss =  tensor(0.6701, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 96
-loss =  tensor(0.6703, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 97
-loss =  tensor(0.6685, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 98
-loss =  tensor(0.6697, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 99
-loss =  tensor(0.6695, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 100
-loss =  tensor(0.6706, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 101
-loss =  tensor(0.6660, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 102
-loss =  tensor(0.6707, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 103
-loss =  tensor(0.6691, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 104
-loss =  tensor(0.6691, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 105
-loss =  tensor(0.6654, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 106
-loss =  tensor(0.6686, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 107
-loss =  tensor(0.6733, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 108
-loss =  tensor(0.6659, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 109
-loss =  tensor(0.6679, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 110
-loss =  tensor(0.6655, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 111
-loss =  tensor(0.6683, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 112
-loss =  tensor(0.6695, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 113
-loss =  tensor(0.6649, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 114
-loss =  tensor(0.6700, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 115
-loss =  tensor(0.6689, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 116
-loss =  tensor(0.6655, device='cuda:0', grad_fn=<SubBackward0>)
-minibatch 117
-loss =  tensor(-1.8405, device='cuda:0', grad_fn=<SubBackward0>)
+loss =  tensor(0.9929, device='cuda:0', grad_fn=<SubBackward0>)
+tensor([ 0.2230, -0.1469,  0.0477, -0.1821,  0.0455,  0.1059,  0.2452,  0.0805,
+        -0.2510,  0.0738], device='cuda:0', grad_fn=<SelectBackward>)
+tensor([[ 0.0362, -0.0768,  0.0276],
+        [ 0.0198, -0.0028, -0.0123],
+        [ 0.0884,  0.0900, -0.1051]], device='cuda:0',
+       grad_fn=<SelectBackward>)
