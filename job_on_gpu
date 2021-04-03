@@ -4,8 +4,8 @@
 # single GPU + single CPU example
 #----------------------------------
 #
-#SBATCH --job-name=training2
-#SBATCH --output=training2
+#SBATCH --job-name=training4
+#SBATCH --output=training4
 #
 #number of CPUs to be used
 #SBATCH --ntasks=1
