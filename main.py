@@ -53,14 +53,3 @@ for epoch in range(epochs):
 
 
 torch.save(net.state_dict(), save_path)
- 
-'''
-with torch.no_grad():
-    noise_to_print = torch.randn((1, latent_size))
-    sample_image = net(noise_to_print)
-    fig, ax = plt.subplots(1, 1)
-    fig.set_size_inches(2, 2)
-    sample_image = sample_image.squeeze()
-    ax.imshow(sample_image)
-    plt.show()
-'''
