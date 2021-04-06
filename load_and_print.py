@@ -13,13 +13,14 @@ batch_size = 512
 noise_batch_size = 512
 train_loader, train_loader_with_replacement, test_loader, labels, num_classes = load_data(dataset, batch_size,
                                                                                           download=False)
-sigma = 50
+sigma = 6.5
 latent_size = 50
 net = mmd_generator(latent_size=latent_size)
 net.to(device)
 
 net.load_state_dict(torch.load('./training2.pth', map_location=torch.device('cpu')))
 net.eval()
+
 
 with torch.no_grad():
 
@@ -34,5 +35,5 @@ with torch.no_grad():
     fig, ax = plt.subplots(1, 1)
     fig.set_size_inches(2, 2)
     sample_image = sample_image.squeeze()
-    ax.imshow(sample_image)
-    plt.show()
+    ax.imshow(sample_image, cmap='gray')
+    fig.show()

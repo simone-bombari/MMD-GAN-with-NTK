@@ -43,7 +43,7 @@ for epoch in range(epochs):
         input_images = input_images.float().to(device)
         # generated_images.to(device)
         optimizer.zero_grad()   # zero the gradient buffers
-        loss = mmd(input_images.squeeze(), generated_images.squeeze(), sigma)
+        loss = mmd(input_images.squeeze(), generated_images.squeeze(), sigma)  # Removing the dummy channel dim in MNIST
         print('loss = ', loss.item(), flush=True)
         print('two parameters ', net.decoder[0].weight[0][0].item(), net.decoder[9].weight[0][0][0][0].item(), flush=True)
         loss.backward()

@@ -2,29 +2,35 @@ import torch
 from torch import nn
 
 
-def gaussian_kernel(batch_images_1, batch_images_2, sigma, equal_batches=False):
-    n_images_1, n_images_2 = batch_images_1.shape[0], batch_images_2.shape[0]
-    term_for_mmd = 0
+def gaussian_kernel(img_1, img_2, sigma):
+    return torch.exp(- (img_1 - img_2).pow(2).sum() / (2 * sigma ** 2))
+
+
+def mmd_equaterm(batch, sigma):
+    n_images = batch.shape[0]
+    term = 0
+    for i in range(n_images):
+        for j in range(i):
+            term += gaussian_kernel(batch[i], batch[j], sigma)
+    term *= 2 / (n_images * (n_images - 1))
+    return term
+
+
+def mmd_crossterm(batch_images, batch_generated_images, sigma):
+    n_images_1, n_images_2 = batch_images.shape[0], batch_generated_images.shape[0]
+    term = 0
     for i in range(n_images_1):
         for j in range(n_images_2):
-            if equal_batches:
-                if i != j:
-                    kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_2[j]).pow(2).sum() / (2 * sigma ** 2))
-                    term_for_mmd += kernel_i_j
-            else:
-                kernel_i_j = torch.exp(- (batch_images_1[i] - batch_images_2[j]).pow(2).sum() / (2 * sigma ** 2))
-                term_for_mmd += kernel_i_j
-    if equal_batches:
-        term_for_mmd /= n_images_1 * (n_images_1 - 1)
-    else:
-        term_for_mmd *= 2 / (n_images_1 * (n_images_1 - 1))
-    return term_for_mmd
+            term += gaussian_kernel(batch_images[i], batch_generated_images[j], sigma)
+    term *= -2 / (n_images_1 * n_images_2)
+    return term
 
 
 def mmd(batch_images, batch_generated_images, sigma):
-    return gaussian_kernel(batch_images, batch_images, sigma, equal_batches=True) +\
-           gaussian_kernel(batch_generated_images, batch_generated_images, sigma, equal_batches=True) -\
-           gaussian_kernel(batch_images, batch_generated_images, sigma)  # There is definitely a smarter way to do this...
+    first_term = mmd_equaterm(batch_images, sigma)
+    second_term = mmd_equaterm(batch_generated_images, sigma)
+    third_term = mmd_crossterm(batch_images, batch_generated_images, sigma)
+    return first_term + second_term + third_term
 
 
 def loss_calculator(outputs, labels, loss_function, num_classes):
