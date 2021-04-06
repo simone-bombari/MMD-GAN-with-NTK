@@ -5,7 +5,7 @@ ucx/1.7.0 on Debian 10(buster) does not support Cuda, yet
 The following have been reloaded with a version change:
   1) python/3.7.6 => python/3.8.5
 
-Sat Apr  3 00:44:13 2021       
+Tue Apr  6 22:24:32 2021       
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 460.39       Driver Version: 460.39       CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
@@ -13,20 +13,36 @@ Sat Apr  3 00:44:13 2021
 | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
 |                               |                      |               MIG M. |
 |===============================+======================+======================|
-|   0  GeForce RTX 208...  On   | 00000000:02:00.0 Off |                  N/A |
-| 27%   28C    P8    21W / 250W |      1MiB / 11019MiB |      0%   E. Process |
+|   0  GeForce RTX 3090    On   | 00000000:01:00.0 Off |                  N/A |
+| 56%   57C    P2   299W / 350W |  22630MiB / 24268MiB |     78%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   1  GeForce RTX 208...  On   | 00000000:03:00.0 Off |                  N/A |
-| 27%   29C    P8    22W / 250W |      1MiB / 11019MiB |      0%   E. Process |
+|   1  GeForce RTX 3090    On   | 00000000:25:00.0 Off |                  N/A |
+| 59%   59C    P2   298W / 350W |  22508MiB / 24268MiB |     30%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   2  GeForce RTX 208...  On   | 00000000:82:00.0 Off |                  N/A |
-| 27%   28C    P8    18W / 250W |      1MiB / 11019MiB |      0%   E. Process |
+|   2  GeForce RTX 3090    On   | 00000000:41:00.0 Off |                  N/A |
+| 30%   27C    P8    21W / 350W |      1MiB / 24268MiB |      0%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-|   3  GeForce RTX 208...  On   | 00000000:83:00.0 Off |                  N/A |
-| 27%   29C    P8    28W / 250W |      1MiB / 11019MiB |      0%   E. Process |
+|   3  GeForce RTX 3090    On   | 00000000:61:00.0 Off |                  N/A |
+| 30%   24C    P8    21W / 350W |      1MiB / 24268MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  GeForce RTX 3090    On   | 00000000:81:00.0 Off |                  N/A |
+| 48%   55C    P2   318W / 350W |  22664MiB / 24268MiB |     89%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  GeForce RTX 3090    On   | 00000000:A1:00.0 Off |                  N/A |
+| 50%   56C    P2   316W / 350W |  22546MiB / 24268MiB |     82%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  GeForce RTX 3090    On   | 00000000:C1:00.0 Off |                  N/A |
+| 30%   25C    P8    22W / 350W |      1MiB / 24268MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  GeForce RTX 3090    On   | 00000000:E1:00.0 Off |                  N/A |
+| 30%   23C    P8    16W / 350W |      1MiB / 24268MiB |      0%   E. Process |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
                                                                                
@@ -35,7 +51,10 @@ Sat Apr  3 00:44:13 2021
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
 |        ID   ID                                                   Usage      |
 |=============================================================================|
-|  No running processes found                                                 |
+|    0   N/A  N/A     47747      C   ...envs/py3_torch/bin/python    22627MiB |
+|    1   N/A  N/A     47747      C   ...envs/py3_torch/bin/python    22505MiB |
+|    4   N/A  N/A     19724      C   ...envs/py3_torch/bin/python    22661MiB |
+|    5   N/A  N/A     19724      C   ...envs/py3_torch/bin/python    22543MiB |
 +-----------------------------------------------------------------------------+
 epoch 0
 cuda:0
@@ -43,332 +62,22 @@ cuda:0
 cuda:0 
 
 minibatch 0
-loss =  0.04080605506896973
-two parameters  0.08218885958194733 0.08452355116605759
-minibatch 1
-loss =  0.009825944900512695
-two parameters  -0.16752465069293976 -0.1654651165008545
-minibatch 2
-loss =  0.010552644729614258
-two parameters  -0.07983262836933136 -0.3186020255088806
-minibatch 3
-loss =  0.011210083961486816
-two parameters  0.04475639760494232 -0.41301730275154114
-minibatch 4
-loss =  0.01019144058227539
-two parameters  0.11346340924501419 -0.46267229318618774
-minibatch 5
-loss =  0.011569023132324219
-two parameters  0.09965872764587402 -0.4765864312648773
-minibatch 6
-loss =  0.01058661937713623
-two parameters  0.03834649547934532 -0.46204113960266113
-minibatch 7
-loss =  0.011300086975097656
-two parameters  -0.03320130333304405 -0.42530059814453125
-minibatch 8
-loss =  0.01024162769317627
-two parameters  -0.08012855052947998 -0.3718531131744385
-minibatch 9
-loss =  0.010704874992370605
-two parameters  -0.0843692272901535 -0.3065704107284546
-minibatch 10
-loss =  0.01029980182647705
-two parameters  -0.05245068296790123 -0.23384223878383636
-minibatch 11
-loss =  0.010331511497497559
-two parameters  -0.002672887174412608 -0.15767647325992584
-minibatch 12
-loss =  0.011359691619873047
-two parameters  0.043181538581848145 -0.08175013214349747
-minibatch 13
-loss =  0.010212182998657227
-two parameters  0.06643848121166229 -0.009405181743204594
-minibatch 14
-loss =  0.009979963302612305
-two parameters  0.060368314385414124 0.05640605837106705
-minibatch 15
-loss =  0.010523557662963867
-two parameters  0.031181495636701584 0.11320926249027252
-minibatch 16
-loss =  0.010424494743347168
-two parameters  -0.007448588497936726 0.15910442173480988
-minibatch 17
-loss =  0.010629415512084961
-two parameters  -0.03952120989561081 0.1928417831659317
-minibatch 18
-loss =  0.010715723037719727
-two parameters  -0.05266770347952843 0.2138553410768509
-minibatch 19
-loss =  0.011331439018249512
-two parameters  -0.04355800524353981 0.22224564850330353
-minibatch 20
-loss =  0.009676456451416016
-two parameters  -0.018058255314826965 0.2187177985906601
-minibatch 21
-loss =  0.011261820793151855
-two parameters  -0.002858504420146346 0.21160350739955902
-minibatch 22
-loss =  0.010437846183776855
-two parameters  0.011554880999028683 0.19977246224880219
-minibatch 23
-loss =  0.010640740394592285
-two parameters  0.02230246737599373 0.18391254544258118
-minibatch 24
-loss =  0.011060595512390137
-two parameters  0.027454903349280357 0.16474787890911102
-minibatch 25
-loss =  0.010643959045410156
-two parameters  0.02640644460916519 0.1430222988128662
-minibatch 26
-loss =  0.0106964111328125
-two parameters  0.019900377839803696 0.1194840520620346
-minibatch 27
-loss =  0.010408639907836914
-two parameters  0.009755282662808895 0.0948714092373848
-minibatch 28
-loss =  0.010143280029296875
-two parameters  -0.0015812928322702646 0.06989874690771103
-minibatch 29
-loss =  0.011051416397094727
-two parameters  -0.011565730907022953 0.04524296894669533
-minibatch 30
-loss =  0.010888218879699707
-two parameters  -0.018109535798430443 0.021530374884605408
-minibatch 31
-loss =  0.00981903076171875
-two parameters  -0.020031174644827843 -0.0006758181261830032
-minibatch 32
-loss =  0.010280132293701172
-two parameters  -0.017274271696805954 -0.02088680863380432
-minibatch 33
-loss =  0.011238455772399902
-two parameters  -0.010840811766684055 -0.03869781270623207
-minibatch 34
-loss =  0.01053464412689209
-two parameters  -0.0024923610035330057 -0.05379539355635643
-minibatch 35
-loss =  0.010715961456298828
-two parameters  0.005690402816981077 -0.06596200913190842
-minibatch 36
-loss =  0.009754180908203125
-two parameters  0.011801729910075665 -0.07507751882076263
-minibatch 37
-loss =  0.009871840476989746
-two parameters  0.0145548852160573 -0.08111752569675446
-minibatch 38
-loss =  0.010274767875671387
-two parameters  0.013559856452047825 -0.08414871990680695
-minibatch 39
-loss =  0.010115265846252441
-two parameters  0.009361287578940392 -0.0843215361237526
-minibatch 40
-loss =  0.010553121566772461
-two parameters  0.0032429976854473352 -0.08186059445142746
-minibatch 41
-loss =  0.010414958000183105
-two parameters  5.700149995391257e-05 -0.07945699244737625
-minibatch 42
-loss =  0.009816288948059082
-two parameters  -0.0028494123835116625 -0.07601118832826614
-minibatch 43
-loss =  0.010351061820983887
-two parameters  -0.00513268681243062 -0.07165995240211487
-minibatch 44
-loss =  0.009181380271911621
-two parameters  -0.006551811937242746 -0.06654362380504608
-minibatch 45
-loss =  0.004899740219116211
-two parameters  -0.006977865006774664 -0.060644276440143585
-minibatch 46
-loss =  0.15525829792022705
-two parameters  -0.006355988793075085 -0.05427956581115723
-minibatch 47
-loss =  0.013949155807495117
-two parameters  -0.004688781686127186 -0.04758843034505844
-minibatch 48
-loss =  0.009905576705932617
-two parameters  -0.002319519640877843 -0.04070486128330231
-minibatch 49
-loss =  0.010469317436218262
-two parameters  0.00014147938054520637 -0.03375621512532234
-minibatch 50
-loss =  0.011144876480102539
-two parameters  0.002358879428356886 -0.026861701160669327
-minibatch 51
-loss =  0.009494662284851074
-two parameters  0.0040494585409760475 -0.02013106271624565
-minibatch 52
-loss =  0.010625720024108887
-two parameters  0.005023048259317875 -0.013663451187312603
-minibatch 53
-loss =  0.010043144226074219
-two parameters  0.005203811917454004 -0.007546515669673681
-minibatch 54
-loss =  0.011208772659301758
-two parameters  0.004632602911442518 -0.0018557156436145306
-minibatch 55
-loss =  0.010613679885864258
-two parameters  0.0034535913728177547 0.0033461463171988726
-minibatch 56
-loss =  0.01069176197052002
-two parameters  0.0018863820005208254 0.008009158074855804
-minibatch 57
-loss =  0.010328173637390137
-two parameters  0.00018977954459842294 0.01209630910307169
-minibatch 58
-loss =  0.010436415672302246
-two parameters  -0.001378246583044529 0.015583286993205547
-minibatch 59
-loss =  0.010282754898071289
-two parameters  -0.002598164137452841 0.018458062782883644
-minibatch 60
-loss =  0.009741067886352539
-two parameters  -0.0033186464570462704 0.020720290020108223
-minibatch 61
-loss =  0.009610414505004883
-two parameters  -0.003396532731130719 0.021550407633185387
-minibatch 62
-loss =  0.010457992553710938
-two parameters  -0.003210253780707717 0.022097736597061157
-minibatch 63
-loss =  0.010561823844909668
-two parameters  -0.002796432701870799 0.02238146774470806
-minibatch 64
-loss =  0.010450005531311035
-two parameters  -0.0022060673218220472 0.02242155559360981
-minibatch 65
-loss =  0.011584043502807617
-two parameters  -0.0014996416866779327 0.022238506004214287
-minibatch 66
-loss =  0.01086270809173584
-two parameters  -0.000741825089789927 0.021853167563676834
-minibatch 67
-loss =  0.010643959045410156
-two parameters  3.8145149119372945e-06 0.02128653973340988
-minibatch 68
-loss =  0.010168313980102539
-two parameters  0.0006796770030632615 0.020559582859277725
-minibatch 69
-loss =  0.010208845138549805
-two parameters  0.0012382206041365862 0.019693052396178246
-minibatch 70
-loss =  0.010249018669128418
-two parameters  0.001644996809773147 0.018707329407334328
-minibatch 71
-loss =  0.010448336601257324
-two parameters  0.0018804470309987664 0.017622269690036774
-minibatch 72
-loss =  0.009493470191955566
-two parameters  0.0019403859041631222 0.01645706221461296
-minibatch 73
-loss =  0.010306477546691895
-two parameters  0.0018352107144892216 0.01523011364042759
-minibatch 74
-loss =  0.010897397994995117
-two parameters  0.0015879776328802109 0.013958936557173729
-minibatch 75
-loss =  0.010426759719848633
-two parameters  0.00123157212510705 0.01266005914658308
-minibatch 76
-loss =  0.010300278663635254
-two parameters  0.0008052618941292167 0.01134894322603941
-minibatch 77
-loss =  0.010929465293884277
-two parameters  0.00035095654311589897 0.01003992184996605
-minibatch 78
-loss =  0.010499954223632812
-two parameters  -9.049785876413807e-05 0.008746149949729443
-minibatch 79
-loss =  0.01069021224975586
-two parameters  -0.0004826812364626676 0.007479566149413586
-minibatch 80
-loss =  0.01091146469116211
-two parameters  -0.0007963551324792206 0.0062508718110620975
-minibatch 81
-loss =  0.010689258575439453
-two parameters  -0.0009038858115673065 0.0056601958349347115
-minibatch 82
-loss =  0.010679125785827637
-two parameters  -0.0009618352632969618 0.005094038788229227
-minibatch 83
-loss =  0.01107180118560791
-two parameters  -0.0009720806847326458 0.004553068894892931
-minibatch 84
-loss =  0.010496258735656738
-two parameters  -0.0009384060394950211 0.004037789534777403
-minibatch 85
-loss =  0.010784626007080078
-two parameters  -0.0008661922183819115 0.003548544133082032
-minibatch 86
-loss =  0.010442972183227539
-two parameters  -0.0007620603428222239 0.00308552966453135
-minibatch 87
-loss =  0.00981152057647705
-two parameters  -0.000633485964499414 0.0026488029398024082
-minibatch 88
-loss =  0.010067105293273926
-two parameters  -0.0004884042427875102 0.0022382959723472595
-minibatch 89
-loss =  0.010414481163024902
-two parameters  -0.00033482263097539544 0.0018538201693445444
-minibatch 90
-loss =  0.011166572570800781
-two parameters  -0.0001804587518563494 0.0014950810000300407
-minibatch 91
-loss =  0.010154485702514648
-two parameters  -3.24170796375256e-05 0.0011616843985393643
-minibatch 92
-loss =  0.011127114295959473
-two parameters  0.00010308308992534876 0.0008531449711881578
-minibatch 93
-loss =  0.01073598861694336
-two parameters  0.00022092011931817979 0.0005688972887583077
-minibatch 94
-loss =  0.010850191116333008
-two parameters  0.0003172169963363558 0.0003083017363678664
-minibatch 95
-loss =  0.01022350788116455
-two parameters  0.0003894207184202969 7.065568934194744e-05
-minibatch 96
-loss =  0.010693550109863281
-two parameters  0.0004363149928394705 -0.00014479963283520192
-minibatch 97
-loss =  0.010923504829406738
-two parameters  0.0004579701635520905 -0.00033887213794514537
-minibatch 98
-loss =  0.0103607177734375
-two parameters  0.0004556372878141701 -0.0005124100716784596
-minibatch 99
-loss =  0.010281562805175781
-two parameters  0.0004315947589930147 -0.000666295934934169
-minibatch 100
-loss =  0.010854482650756836
-two parameters  0.0003889583458658308 -0.0008014391059987247
-minibatch 101
-loss =  0.010825634002685547
-two parameters  0.00036021211417391896 -0.0008601044537499547
-minibatch 102
-loss =  0.010725021362304688
-two parameters  0.0003254007897339761 -0.0009105161880142987
-minibatch 103
-loss =  0.011261224746704102
-two parameters  0.00028591437148861587 -0.0009532896219752729
-minibatch 104
-loss =  0.010991334915161133
-two parameters  0.00024313500034622848 -0.00098900415468961
-minibatch 105
-loss =  0.010257601737976074
-two parameters  0.00019840497407130897 -0.0010182055411860347
-minibatch 106
-loss =  0.011490106582641602
-two parameters  0.00015299800725188106 -0.0010414073476567864
-minibatch 107
-loss =  0.01043856143951416
-two parameters  0.00010809433297254145 -0.001059092814102769
-minibatch 108
-loss =  0.010509490966796875
-two parameters  6.476000999100506e-05 -0.0010717163095250726
-minibatch 109
-loss =  0.01092982292175293
-two parameters  2.3930377210490406e-05 -0.0010797044960781932
+Traceback (most recent call last):
+  File "main.py", line 43, in <module>
+    generated_images = net(noise)
+  File "/mnt/nfs/clustersw/Debian/buster/python/3.8.5/lib/python3.8/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/nfs/scistore13/mondegrp/sbombari/third_rotation/MMD-GAN-with-NTK/models.py", line 74, in forward
+    return self.decoder(z)
+  File "/mnt/nfs/clustersw/Debian/buster/python/3.8.5/lib/python3.8/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/mnt/nfs/clustersw/Debian/buster/python/3.8.5/lib/python3.8/site-packages/torch/nn/modules/container.py", line 100, in forward
+    input = module(input)
+  File "/mnt/nfs/clustersw/Debian/buster/python/3.8.5/lib/python3.8/site-packages/torch/nn/modules/module.py", line 550, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/mnt/nfs/clustersw/Debian/buster/python/3.8.5/lib/python3.8/site-packages/torch/nn/modules/linear.py", line 87, in forward
+    return F.linear(input, self.weight, self.bias)
+  File "/mnt/nfs/clustersw/Debian/buster/python/3.8.5/lib/python3.8/site-packages/torch/nn/functional.py", line 1610, in linear
+    ret = torch.addmm(bias, input, weight.t())
+RuntimeError: CUDA error: CUBLAS_STATUS_EXECUTION_FAILED when calling `cublasSgemm( handle, opa, opb, m, n, k, &alpha, a, lda, b, ldb, &beta, c, ldc)`
+srun: error: gpu224: task 0: Exited with exit code 1

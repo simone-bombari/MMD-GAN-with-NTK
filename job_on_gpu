@@ -34,7 +34,7 @@
 
 #
 #Define the number of GPUs used by your job
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:3
 #
 
 #
