@@ -1,3 +1,4 @@
+import torch
 from torch import nn
 from torch.nn import functional as F
 
@@ -47,6 +48,6 @@ class FullyConnected(nn.Module):
     def forward(self, x):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
-        x = F.sigmoid(self.fc3(x))
+        x = torch.sigmoid(self.fc3(x))
         x = x.reshape((-1, 1, 28, 28))
         return x

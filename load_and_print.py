@@ -14,11 +14,11 @@ noise_batch_size = 512
 train_loader, train_loader_with_replacement, test_loader, labels, num_classes = load_data(dataset, batch_size,
                                                                                           download=False)
 sigma = 6.5
-latent_size = 50
+latent_size = 32
 net = FullyConnected(latent_size=latent_size)
 net.to(device)
 
-net.load_state_dict(torch.load('./saved_models/training4_1epoch.pth', map_location=torch.device('cpu')))
+net.load_state_dict(torch.load('./training4.pth', map_location=torch.device('cpu')))
 net.eval()
 
 
@@ -27,7 +27,7 @@ with torch.no_grad():
     check_noise = torch.randn((noise_batch_size, latent_size)).float().to(device)
     check_input_images = next(iter(train_loader))[0]
     check_generated_images = net(check_noise)
-    check_loss = mmd(check_input_images.squeeze(), check_generated_images.squeeze(), sigma)
+    check_loss = mmd(check_input_images, check_generated_images, sigma)
     print('check loss = ', check_loss.item(), flush=True)
 
     noise_to_print = torch.randn((1, latent_size))
