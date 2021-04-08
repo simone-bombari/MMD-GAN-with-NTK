@@ -31,7 +31,7 @@ def mmd(batch_images, batch_generated_images, sigma):
     return first_term + second_term + third_term
 
 
-def loss_calculator(outputs, labels, loss_function, num_classes):
+def loss_calculator(outputs, labels, loss_function, num_classes=10):
     if loss_function == 'MSE':
         criterion = nn.MSELoss()
         targets = torch.eye(num_classes)[labels]  # One-hot encoding
