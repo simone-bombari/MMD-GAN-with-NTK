@@ -18,7 +18,7 @@ latent_size = 50
 net = mmd_generator(latent_size=latent_size)
 net.to(device)
 
-net.load_state_dict(torch.load('./training2.pth', map_location=torch.device('cpu')))
+net.load_state_dict(torch.load('./saved_models/training4_1epoch.pth', map_location=torch.device('cpu')))
 net.eval()
 
 

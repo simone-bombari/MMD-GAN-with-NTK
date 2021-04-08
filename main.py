@@ -1,5 +1,4 @@
 import torch
-import matplotlib.pyplot as plt
 import torch.optim as optim
 from dataloader import load_data
 from losses import mmd
@@ -42,11 +41,10 @@ for epoch in range(epochs):
         print('minibatch', c, flush=True)  # MNIST has 60000 images
 
         generated_images = net(noise)
-        exit(0)
         input_images = input_images.to(device)
         # generated_images.to(device)
         optimizer.zero_grad()   # zero the gradient buffers
-        loss = mmd(input_images.squeeze(), generated_images.squeeze(), sigma)  # Removing the dummy channel dim in MNIST
+        loss = mmd(input_images, generated_images, sigma)  # Removing the dummy channel dim in MNIST
         print('loss = ', loss.item(), flush=True)
         print('two parameters ', net.decoder[0].weight[0][0].item(), net.decoder[9].weight[0][0][0][0].item(), flush=True)
         loss.backward()
