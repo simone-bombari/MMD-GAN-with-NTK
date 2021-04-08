@@ -2,7 +2,7 @@ import torch
 import torch.optim as optim
 from dataloader import load_data
 from losses import mmd
-from models import mmd_generator
+from models import FullyConnected
 from torch import nn
 
 
@@ -13,10 +13,10 @@ dataset = 'MNIST'
 batch_size = 512
 noise_batch_size = 512
 sigma = 6.5
-latent_size = 50
+latent_size = 32
 train_loader, train_loader_with_replacement, test_loader, labels, num_classes = load_data(dataset, batch_size, download=False)
 epochs = 1
-net = mmd_generator(latent_size=latent_size)
+net = FullyConnected(latent_size=latent_size)
 net.to(device)
 optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=weight_decay)
 save_path = './training4.pth'
@@ -32,10 +32,6 @@ for epoch in range(epochs):
     c = 0
     # Train!
     for input_images, _ in iter(train_loader):
-        if c % 20 == 0:
-            for g in optimizer.param_groups:
-                lr = lr / 2
-                g['lr'] = lr
         if c == 110:
             break
         print('minibatch', c, flush=True)  # MNIST has 60000 images

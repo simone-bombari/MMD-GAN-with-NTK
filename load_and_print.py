@@ -2,7 +2,7 @@ import torch
 import matplotlib.pyplot as plt
 from dataloader import load_data
 from losses import mmd
-from models import mmd_generator
+from models import FullyConnected
 
 
 device = "cpu"
@@ -15,7 +15,7 @@ train_loader, train_loader_with_replacement, test_loader, labels, num_classes = 
                                                                                           download=False)
 sigma = 6.5
 latent_size = 50
-net = mmd_generator(latent_size=latent_size)
+net = FullyConnected(latent_size=latent_size)
 net.to(device)
 
 net.load_state_dict(torch.load('./saved_models/training4_1epoch.pth', map_location=torch.device('cpu')))
