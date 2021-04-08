@@ -6,15 +6,14 @@ from models import FullyConnected
 
 
 device = "cpu"
-lr = 0.5
+lr = 0.1
 weight_decay = 10 ** (-4)
 dataset = 'MNIST'
-batch_size = 512
-noise_batch_size = 512
-train_loader, train_loader_with_replacement, test_loader, labels, num_classes = load_data(dataset, batch_size,
-                                                                                          download=False)
-sigma = 6.5
-latent_size = 32
+batch_size = 1024
+noise_batch_size = 1024
+train_loader, test_loader, labels, num_classes = load_data(dataset, batch_size, download=False)
+sigma = 5
+latent_size = 8
 net = FullyConnected(latent_size=latent_size)
 net.to(device)
 

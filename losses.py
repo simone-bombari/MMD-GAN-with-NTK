@@ -6,22 +6,12 @@ def gaussian_kernel(img_1, img_2, sigma):
     return torch.exp(- (img_1 - img_2).pow(2).sum() / (2 * sigma ** 2))
 
 
-def mmd_equaterm_shitty(batch, sigma):
-    n_images = batch.shape[0]
-    term = 0
-    for i in range(n_images):
-        for j in range(i):
-            term += gaussian_kernel(batch[i], batch[j], sigma)
-    term *= 2 / (n_images * (n_images - 1))
-    return term
-
-
 def mmd_equaterm(batch, sigma):
     n_images = batch.shape[0]
     dist = torch.cdist(batch.flatten(start_dim=2).transpose(0, 1),
                        batch.flatten(start_dim=2).transpose(0, 1))
     diag = torch.diag(dist.squeeze())
-    gauss_dist = torch.exp(- dist.pow(2) / (2 * sigma ** 2)).sum()\
+    gauss_dist = torch.exp(- dist.pow(2) / (2 * sigma ** 2)).sum() \
                  - torch.exp(- diag.pow(2) / (2 * sigma ** 2)).sum()
     return gauss_dist / (n_images * (n_images - 1))
 
@@ -32,16 +22,6 @@ def mmd_crossterm(batch_images, batch_generated_images, sigma):
                        batch_generated_images.flatten(start_dim=2).transpose(0, 1))
     gauss_dist = torch.exp(- dist.pow(2) / (2 * sigma ** 2)).sum()
     return -2 * gauss_dist / (n_images_1 * n_images_2)
-
-
-def mmd_crossterm_shitty(batch_images, batch_generated_images, sigma):
-    n_images_1, n_images_2 = batch_images.shape[0], batch_generated_images.shape[0]
-    term = 0
-    for i in range(n_images_1):
-        for j in range(n_images_2):
-            term += gaussian_kernel(batch_images[i], batch_generated_images[j], sigma)
-    term *= -2 / (n_images_1 * n_images_2)
-    return term
 
 
 def mmd(batch_images, batch_generated_images, sigma):

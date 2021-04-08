@@ -51,17 +51,11 @@ def load_data(dataset, batch_size, download=False):
         shuffle=True
         )
 
-    train_loader_with_replacement = torch.utils.data.DataLoader(
-        dataset_train,
-        batch_size=batch_size,
-        sampler=torch.utils.data.sampler.RandomSampler(dataset_train, replacement=True)
-    )
-
     test_loader = torch.utils.data.DataLoader(
         dataset_test,
         batch_size=batch_size
     )
 
-    return train_loader, train_loader_with_replacement, test_loader, labels, num_classes
+    return train_loader, test_loader, labels, num_classes
 
 
