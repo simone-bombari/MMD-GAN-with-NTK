@@ -18,6 +18,8 @@ train_loader, test_loader, labels, num_classes = load_data(dataset, batch_size, 
 net = Convolutional()
 net.to(device)
 
+torch.save(net.state_dict(), './untrained_classifier.pth')
+
 optimizer = optim.SGD(net.parameters(), lr=lr, weight_decay=weight_decay)  # Here SGD works better
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.5)
 
@@ -55,3 +57,5 @@ for epoch in range(1, epochs + 1):
 
 
 torch.save(net.state_dict(), save_path)
+
+
