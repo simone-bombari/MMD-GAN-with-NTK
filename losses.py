@@ -46,14 +46,16 @@ def mmd_crossterm_NTK(batch_images, batch_generated_images, net):
 '''
 
 
-def get_NTK_avg_feature(images, classifier):
+def get_NTK_avg_feature(images, classifier, retain_graph=False):
     outputs = classifier(images)
     avg_outputs = outputs.mean(dim=0)
     squared_outputs = (avg_outputs ** 2).sum()
-    squared_outputs.backward(retain_graph=True)
+    # squared_outputs.backward(retain_graph=True)
     parameters_grad = []
     for param in iter(classifier.parameters()):
-        parameters_grad.append(param.grad)
+        # parameters_grad.append(param.grad)
+        parameters_grad.append(torch.autograd.grad(squared_outputs, param,
+                                                   retain_graph=True, create_graph=True)[0])
     return parameters_grad
 
 
@@ -69,10 +71,10 @@ def distance_features(list1, list2):
 
 def mmd_NTK(batch_images, batch_generated_images, classifier):
     avg_feature_vector_images = get_NTK_avg_feature(batch_images, classifier)
-    print(avg_feature_vector_images[0][0])
+    # print(avg_feature_vector_images[0][0])
     avg_feature_vector_generated_images = get_NTK_avg_feature(batch_generated_images, classifier)
-    print(avg_feature_vector_images[0][0])
-    print(avg_feature_vector_generated_images[0][0])
+    # print(avg_feature_vector_images[0][0])
+    # print(avg_feature_vector_generated_images[0][0])
     distance_squared = distance_features(avg_feature_vector_images, avg_feature_vector_generated_images)
     return distance_squared
 
