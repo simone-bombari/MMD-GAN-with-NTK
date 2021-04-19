@@ -4,8 +4,8 @@
 # single GPU + single CPU example
 #----------------------------------
 #
-#SBATCH --job-name=trainingNTK
-#SBATCH --output=trainingNTK
+#SBATCH --job-name=training_cpu_4
+#SBATCH --output=training_cpu_4
 #
 #number of CPUs to be used
 #SBATCH --ntasks=1
@@ -30,11 +30,11 @@
 #SBATCH --no-requeue
 #
 #Define the "gpu" partition for GPU-accelerated jobs
-#SBATCH --partition=gpu
+#SBATCH --partition=gamma
 
 #
 #Define the number of GPUs used by your job
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:0
 #
 
 #
@@ -44,14 +44,12 @@ unset SLURM_EXPORT_ENV
 #
 #
 #load an CUDA software module
-module load cuda
 module load python/3.7.6
 module load pytorch
 module load torch/devel
 
 #
-#print out the list of GPUs before the job is started
-srun /usr/bin/nvidia-smi
-#
 #run your CUDA binary through SLURM's srun
-srun python3 main.py
+python3 main.py
+
+

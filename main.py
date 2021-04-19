@@ -22,9 +22,9 @@ net = FullyConnected(latent_size=latent_size)
 net.to(device)
 
 optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=weight_decay)
-scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.5)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.7)
 
-epochs = 20
+epochs = 800
 
 save_path = './training_NTK.pth'
 
@@ -55,7 +55,7 @@ for epoch in range(1, epochs + 1):
 
         if c % 10 == 9:
             print('minibatch', c+1, 'Loss = {:.3f}'.format(loss.item()), flush=True)
-            print(classifier.fc1.weight[0][0].item())
+            # print(classifier.fc1.weight[0][0].item())
 
     scheduler.step()
 
