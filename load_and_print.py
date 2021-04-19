@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from dataloader import load_data
 from losses import mmd_gaussian
 from models import FullyConnected
+import numpy as np
 
 
 device = "cpu"
@@ -18,7 +19,7 @@ latent_size = 16
 net = FullyConnected(latent_size=latent_size)
 net.to(device)
 
-net.load_state_dict(torch.load('./trained_classifier.pth', map_location=torch.device(device)))
+net.load_state_dict(torch.load('./training_NTK.pth', map_location=torch.device(device)))
 net.eval()
 check = False
 
@@ -32,9 +33,11 @@ if check:
 
 
 with torch.no_grad():
-    noise_to_print = torch.randn((16, latent_size))
+    number_of_images = 1
+    row = int(np.sqrt(number_of_images))
+    noise_to_print = torch.randn((number_of_images, latent_size))
     sample_images = net(noise_to_print)
-    plot_image = sample_images.reshape((4, 4, 28, 28)).transpose(1, 2).reshape((-1, 4 * 28))
+    plot_image = sample_images.reshape((row, row, 28, 28)).transpose(1, 2).reshape((-1, row * 28))
     fig, ax = plt.subplots(1, 1)
     fig.set_size_inches(8, 8)
     ax.imshow(plot_image)

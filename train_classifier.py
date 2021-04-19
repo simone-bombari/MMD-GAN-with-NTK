@@ -2,7 +2,7 @@ import torch
 import torch.optim as optim
 from dataloader import load_data
 from losses import loss_calculator, compute_loss_accuracy
-from models import Convolutional
+from models import Convolutional, FullyConnectedClassifier
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -15,7 +15,7 @@ weight_decay = 10 ** (-4)
 batch_size = 128
 train_loader, test_loader, labels, num_classes = load_data(dataset, batch_size, download=False)
 
-net = Convolutional()
+net = FullyConnectedClassifier()
 net.to(device)
 
 torch.save(net.state_dict(), './untrained_classifier.pth')
@@ -26,7 +26,7 @@ scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=2, gamma=0.5)
 epochs = 5
 loss_function = 'CEL'
 
-save_path = './trained_classifier.pth'
+save_path = './trained_classifier_fc.pth'
 
 
 for epoch in range(1, epochs + 1):
@@ -57,5 +57,3 @@ for epoch in range(1, epochs + 1):
 
 
 torch.save(net.state_dict(), save_path)
-
-

@@ -2,7 +2,7 @@ import torch
 import torch.optim as optim
 from dataloader import load_data
 from losses import mmd_gaussian, mmd_NTK
-from models import FullyConnected, Convolutional
+from models import FullyConnected, Convolutional, FullyConnectedClassifier
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -24,14 +24,14 @@ net.to(device)
 optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=weight_decay)
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=100, gamma=0.7)
 
-epochs = 800
+epochs = 3
 
 save_path = './training_NTK.pth'
 
 if kernel == 'NTK':
-    classifier = Convolutional()
+    classifier = FullyConnectedClassifier()
     classifier.to(device)
-    classifier.load_state_dict(torch.load('./trained_classifier.pth', map_location=torch.device(device)))
+    classifier.load_state_dict(torch.load('./trained_classifier_fc.pth', map_location=torch.device(device)))
 elif kernel == 'Gaussian':
     sigma = 5
 
